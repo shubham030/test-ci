@@ -8,11 +8,14 @@ jobs:
     name: Golang Formatter
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          path: $GITHUB_WORKSPACE
-          set-safe-directory: true
+      - name: Set ownership
+        run: |
+          # this is to fix GIT not liking owner of the checkout dir
+          chown -R $(id -u):$(id -g) $PWD
       - name: Golang Formatter
         uses: shubham030/auto-go-format@master
         env:
