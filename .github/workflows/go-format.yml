@@ -12,14 +12,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Set safe directory
-        run: | 
-          # this is to fix safe directory issue
-          git config --global --add safe.directory /github/workspace
-      - name: Set ownership
-        run: |
-          # this is to fix GIT not liking owner of the checkout dir
-          chown -R $(id -u):$(id -g) $PWD
       - name: Golang Formatter
         uses: shubham030/auto-go-format@master
         env:
