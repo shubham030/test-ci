@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@master
         with:
           fetch-depth: 0
-          path: 'tmp/'
+          path: tmp
           set-safe-directory: true
       - name: Golang Formatter
         uses: shubham030/auto-go-format@master
