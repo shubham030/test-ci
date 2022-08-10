@@ -12,6 +12,6 @@ jobs:
         with:
           fetch-depth: 0
       - name: Golang Formatter
-        uses: rvarbanov/auto-go-format@patch-1
+        uses: shubham030/auto-go-format@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
