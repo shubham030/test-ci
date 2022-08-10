@@ -12,9 +12,6 @@ jobs:
         with:
           fetch-depth: 0
       - name: Golang Formatter
-        uses: Jerome1337/gofmt-action@v1.0.4
-        with:
-          gofmt-path: './'
-          gofmt-flags: '-l -d'
+        uses: rvarbanov/auto-go-format@patch-1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
