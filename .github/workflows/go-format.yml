@@ -2,7 +2,7 @@ name: Golang Formatter
 
 on:
   pull_request:
-    branches: [master]
+    types: [opened, review_requested, ready_for_review]
 
 jobs:
   prettier:
