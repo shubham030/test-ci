@@ -8,11 +8,9 @@ jobs:
     name: Golang Formatter
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-          path: tmp
-          set-safe-directory: true
       - name: Golang Formatter
         uses: shubham030/auto-go-format@master
         env:
