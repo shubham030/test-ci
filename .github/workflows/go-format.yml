@@ -1,24 +1,20 @@
 name: Golang Formatter
-
 on:
   pull_request:
     types: [opened, review_requested, ready_for_review]
 
 jobs:
-  prettier:
+  build:
+    name: Golang Formatter
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        # Make sure the actual branch is checked out when running on pull requests
-        ref: ${{ github.head_ref }}
-        # This is important to fetch the changes to the previous commit
-        fetch-depth: 0
-
-    - name: Format code
-      uses: shubham030/auto-gofmt@master
-      with:
-        # This part is also where you can pass other options, for example:
-        only_changed: True
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+      - name: Golang Formatter
+        uses: Jerome1337/gofmt-action@v1.0.4
+        with:
+          gofmt-path: './'
+          gofmt-flags: '-l -d'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
